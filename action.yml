@@ -1,0 +1,15 @@
+name: 'ParsePR'
+description: 'Parse the PR Tittle in Tagable SemVer Release Number'
+inputs:
+  PR_TITTLE:  # id of input
+    description: 'The Tittle of PR to be Parsed'
+    required: true
+    default: ''
+outputs:
+  SEMVER_TAG: # id of output
+    description: 'The Parsed PR Tittle in Tag format'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ PR_TITTLE }}
